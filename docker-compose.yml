@@ -1,0 +1,46 @@
+version: "3.7"
+services:
+  nginx:
+    image: nginx
+    working_dir: ${DOCKER_SOURCE_DIR}
+    restart: always
+    volumes:
+      - .:${DOCKER_SOURCE_DIR}
+      - ./docker/nginx:/etc/nginx/conf.d
+    ports:
+      - "${DOCKER_HTTP_PORT}:80"
+    networks:
+      - net
+    depends_on:
+      - php
+
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      XDEBUG_CONFIG: "
+        remote_host=${DOCKER_HOST_IP}
+        idekey=PHPSTORM
+        remote_enable=1
+        remote_autostart=1
+        remote_port=9000
+        scream=0
+        show_local_vars=1"
+
+    working_dir: ${DOCKER_SOURCE_DIR}
+    volumes:
+      - ./:${DOCKER_SOURCE_DIR}
+    networks:
+      - net
+
+
+networks:
+  net:
+    name: ${DOCKER_PREFIX}network
+    ipam:
+      driver: default
+      config:
+        - subnet: ${DOCKER_SUBNET}
+

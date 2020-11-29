@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Smike\Statement\GenerateCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+$config = require_once 'config.php';
+
+$application->add(new GenerateCommand(
+    $config['company'],
+    $config['repositories'],
+    $config['author'],
+    $config['token']
+));
+
+$application->run();

@@ -1,0 +1,28 @@
+{
+    "name": "smike/statement",
+    "description": "Monthly statement generator",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Shapovalov",
+            "email": "smike.mbx@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/console": "^5.1",
+        "knplabs/github-api": "^2.17",
+        "php-http/guzzle6-adapter": "^1.1",
+      "ext-intl": "*"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Smike\\Statement\\": "src"
+        }
+    }
+}
