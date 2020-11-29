@@ -2,3 +2,4 @@
 /.env
 /vendor/
 /.idea
+/aws.pem
