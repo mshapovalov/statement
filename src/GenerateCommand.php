@@ -56,6 +56,7 @@ final class GenerateCommand extends Command
         $filter = new PullRequestFilter($this->company, $this->author, $this->repositories);
         $filter->setYear($year)->setMonth($month);
         $pulls = iterator_to_array(PullRequestRepository::create($this->token)->fetch($filter));
+<<<<<<< HEAD
 //        $startDate = new \DateTimeImmutable(sprintf('%s-%s-01 00:00:00', $year, $month));
 //        $endDate = new \DateTimeImmutable(date("Y-m-t H:i:s", $startDate->getTimestamp()));
 //        $result = [];
@@ -123,4 +124,8 @@ final class GenerateCommand extends Command
             'direction' => 'desc'
         ]);
     }
+=======
+        return 0;
+    }
+>>>>>>> e221519 (initial commit)
 }
