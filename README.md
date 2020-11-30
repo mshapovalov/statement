@@ -1,7 +1,7 @@
 # Installation
 - [Install docker](https://docs.docker.com/engine/install/)
 - [Install docker-compose](https://docs.docker.com/compose/install/)
-- Create .env file from .env.dist
+- Create `.env` file from `.env.dist`
 - Create `config.php` file from `config.dist.php`
 - run `docker-compose up -d`
 - run `docker-compose exec php composer install`
