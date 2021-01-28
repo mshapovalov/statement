@@ -8,7 +8,7 @@ use Smike\Statement\PullRequestRepository\PullRequestRepository;
 require __DIR__ . '/../vendor/autoload.php';
 $config = require_once __DIR__ . '/../config.php';
 if($_GET['secret'] !== $config['secret']){
-    return;
+    die('secret is required');
 }
 $year = $_GET['year'] ?? date('Y');
 $month = $_GET['month'] ?? date('m');
